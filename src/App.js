@@ -1,13 +1,15 @@
+
 import React, { Component, Fragment } from 'react';
 import { Query } from "react-apollo";
 import RoutePage from './Router'
 import './App.css';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 class App extends Component {
   constructor(props) {
     super(props)
 
-    console.log('app : ', this.props)
   }
 
   componentDidMount() {
@@ -16,7 +18,9 @@ class App extends Component {
   render() {
     return (
       <Fragment>
+        <Header/>
         <RoutePage/>
+        <Footer/>
       </Fragment>
     );
   }

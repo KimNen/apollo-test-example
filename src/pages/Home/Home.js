@@ -1,8 +1,11 @@
+
+
 import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import * as heroGql from '../../graphql/query/hero';
-import Loading from '../Loading/Loading'
-import Error from '../Error/Error'
+import Loading from '../loading/Loading'
+import { Table } from 'reactstrap';
+import Error from '../error/Error'
 import client from '../../components/client';
 import './Home.css'
 
@@ -23,12 +26,31 @@ class Home extends React.Component{
           if(loading) return <Loading/>
           if(error) return <Error/>
           console.log(data)
-          return (
+          return (  
             <div>
-
+              {<Table dark>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>typename</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.hero.friends.map( (CurrentValue) => { 
+                    return (
+                      <tr>  
+                        <td>{CurrentValue.id}</td>
+                        <td>{CurrentValue.name}</td>
+                        <td>{CurrentValue.__typename}</td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+                
+              </Table>}
             </div>
           )
-
         }}
 
       </Query>
