@@ -2,8 +2,12 @@ import gql from "graphql-tag";
 
 export const createReview = () => { 
     return gql`
-        mutation(){
-            
+    mutation EditReview($Epi : Episode, $Input : ReviewInput!){
+        createReview(episode : $Epi, review: $Input){
+            stars,
+            episode,
+            commentary
         }
-    `
+    }
+`;
 }

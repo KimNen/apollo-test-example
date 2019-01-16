@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import { Query } from "react-apollo";
 import * as heroGql from '../../graphql/query/hero';
 import Loading from '../loading/Loading'
-import { Table } from 'reactstrap';
 import Error from '../error/Error'
+import { Table } from 'reactstrap';
 import client from '../../components/client';
 import './Home.css'
 
